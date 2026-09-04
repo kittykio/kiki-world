@@ -1,0 +1,184 @@
+:root {
+  --night: #070711;
+  --panel: rgb(9 9 24 / 82%);
+  --panel-solid: #0d0d1d;
+  --text: #f8f7ff;
+  --muted: #b9b5cf;
+  --cyan: #00f5ff;
+  --magenta: #ff2bd6;
+  --lime: #b7ff00;
+  --violet: #8b5cf6;
+}
+
+:root,
+body,
+.boot-loader {
+  background: var(--night);
+  color: var(--text);
+}
+
+.studio-shell {
+  background:
+    radial-gradient(circle at 18% 18%, rgb(0 245 255 / 16%), transparent 30%),
+    radial-gradient(circle at 82% 28%, rgb(255 43 214 / 14%), transparent 32%),
+    radial-gradient(circle at 50% 90%, rgb(139 92 246 / 15%), transparent 38%),
+    var(--night);
+}
+
+.studio-header p,
+.story-card span,
+.outfit-picker legend {
+  color: var(--cyan);
+  text-shadow: 0 0 14px rgb(0 245 255 / 70%);
+}
+
+.studio-logo {
+  display: block;
+  width: clamp(12rem, 27vw, 24rem);
+  height: auto;
+  margin-bottom: 0.65rem;
+  filter: drop-shadow(0 0 12px rgb(0 245 255 / 22%));
+}
+
+.studio-header h1 {
+  background: linear-gradient(105deg, var(--text) 10%, var(--cyan) 50%, var(--magenta));
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgb(0 245 255 / 18%));
+}
+
+.studio-header button,
+.story-card,
+.outfit-picker,
+.controls,
+.room-label {
+  border-color: rgb(0 245 255 / 24%);
+  background: var(--panel);
+  box-shadow: inset 0 0 18px rgb(139 92 246 / 8%), 0 0 24px rgb(0 245 255 / 7%);
+}
+
+.studio-header button:hover,
+.studio-header button:focus-visible {
+  border-color: var(--magenta);
+  box-shadow: 0 0 20px rgb(255 43 214 / 35%);
+}
+
+.room-label:hover,
+.room-label.active {
+  border-color: var(--cyan);
+  box-shadow: 0 0 22px rgb(0 245 255 / 28%);
+}
+
+.story-card p,
+.room-label small,
+.controls button,
+.hint {
+  color: var(--muted);
+}
+
+.story-card h2 {
+  text-shadow: 0 0 18px rgb(255 43 214 / 24%);
+}
+
+.outfit-picker button.selected {
+  border-color: var(--magenta);
+  background: rgb(255 43 214 / 13%);
+  box-shadow: 0 0 15px rgb(255 43 214 / 25%);
+}
+
+.controls button.selected {
+  background: linear-gradient(120deg, var(--cyan), var(--lime));
+  color: #05050b;
+  box-shadow: 0 0 22px rgb(0 245 255 / 38%);
+}
+
+.scroll-progress i.active,
+.loader i {
+  background: linear-gradient(var(--cyan), var(--magenta));
+  box-shadow: 0 0 16px var(--cyan);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.studio-footer {
+  position: absolute;
+  z-index: 5;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(0.7rem, env(safe-area-inset-bottom));
+  left: max(1rem, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  pointer-events: none;
+}
+
+.studio-footer .hint,
+.studio-footer .copyright {
+  position: static;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  transform: none;
+  color: inherit;
+  text-align: left;
+}
+
+.copyright {
+  display: flex;
+  gap: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.footer-stack {
+  color: var(--cyan);
+  opacity: 0.78;
+}
+
+@media (prefers-contrast: more) {
+  .studio-header button,
+  .story-card,
+  .outfit-picker,
+  .controls,
+  .room-label {
+    border-color: var(--cyan);
+    background: var(--panel-solid);
+  }
+}
+
+@media (max-width: 700px) {
+  .studio-logo {
+    width: 10.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .studio-footer {
+    justify-content: center;
+  }
+
+  .studio-footer .hint,
+  .footer-stack {
+    display: none;
+  }
+}
+
+@media (max-height: 500px) {
+  .studio-logo {
+    width: 9.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .studio-footer {
+    bottom: max(0.3rem, env(safe-area-inset-bottom));
+  }
+
+  .studio-footer .hint,
+  .footer-stack {
+    display: none;
+  }
+}
